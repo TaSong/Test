@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHYTHMJO Beat Machine</title>
+    <style>
+        /* ------------------ CSS단 -------------------- */
+        /* 배경화면 설정  */
+        .cl_bg{
+            position: relative;
+            background-image: url("images/wave2.gif");
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+        }
+
+
+        #id_bg{
+            width: 1000px;
+            height: 736px;
+            text-align: center;
+            font-size: 100px;
+        }
+        /* RHYTHMJO Beat Machine 글자 디자인 */
+        #id_txt1{
+            position: absolute;
+            top: 283px;
+            left: 223px;
+            color: aqua;
+        }
+        #id_txt2{
+            position: absolute;
+            top: 280px;
+            left: 220px;
+            color: navy;
+        }
+        #id_txt3{
+            position: absolute;
+            top: 277px;
+            left: 217px;
+            color: white;
+        }
+
+
+        /* >press 'SPACE' 글자설정 */
+        #id_notice1{
+            position: absolute;
+            top: 545px;
+            left: 630px;
+            color: navy;
+            font-size: 50px;
+        }
+        #id_notice2{
+            position: absolute;
+                top: 540px;
+                left: 630px;
+                color: white;
+                font-size: 50px;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- HTML -->
+    <div class="cl_bg">
+        <div id="id_bg">
+            <div id="id_txt1">RHYTHMJO Beat Machine</div>
+            <div id="id_txt2">RHYTHMJO Beat Machine</div>
+            <div id="id_txt3">RHYTHMJO Beat Machine</div>
+            <!-- <div id="id_nxt"></div> -->
+            <div id="id_notice1">press 'SPACE'</div>
+            <div id="id_notice2">press 'SPACE'</div>
+        </div>
+    </div>
+
+    <!-- 스크립트 -->
+    <!-- (자바스크립트 JavaScript JS) -->
+    <script>
+        // var v_nxt = document.getElementById("id_nxt");
+
+        window.addEventListener("keydown", event => {
+            var x = event.keyCode;
+            if(x == 32 || x == 13)
+            location.href = "FBM.html";
+        });
+    </script>
+
+</body>
+</html>

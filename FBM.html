@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RHYTHMJO Beat Machine</title>
+    <style>
+        .cl_bg {
+            background-image: url("images/ocean1.gif");
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+        }
+
+        #container {
+            position: relative;
+            left: 350px;
+            top: 10px;
+            width: 1000px;
+            height: 736px;
+        }
+
+        #audio {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+        }
+
+        .cl_btn {
+            position: relative;
+            width: 200px;
+            height: 80px;
+            background-color: crimson;
+            text-align: center;
+            font-size: 30px;
+            border-radius: 15%;
+            color: oldlace;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .cl_cmn {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: wheat;
+            text-align: center;
+            font-size: 80px;
+            z-index: 1;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cl_bg">
+        <div id="container">
+            <input type="button" id="id_rec" class="cl_btn" value="Record" onclick="f_rec()">
+            <input type="button" id="id_stop" class="cl_btn" value="Stop" style="background-color: teal;">
+            <input type="button" id="id_play" class="cl_btn" value="Play" style="background-color: royalblue;"><br> <br>
+            <input type="button" id="id_btn1" class="cl_cmn" onclick="f_btn01()"
+                style="background-color: rgb(17, 75, 133)">
+            <input type="button" id="id_btn2" class="cl_cmn" onclick="f_btn02()"
+                style="background-color: rgb(21, 69, 116);">
+            <input type="button" id="id_btn3" class="cl_cmn" onclick="f_btn03()"
+                style="background-color:rgb(23, 55, 87);">
+            <input type="button" id="id_btn4" class="cl_cmn" onclick="f_btn04()"
+                style="background-color: rgb(20, 38, 56);"> <br>
+            <input type="button" id="id_btn5" class="cl_cmn" onclick="f_btn05()"
+                style="background-color: rgb(17, 75, 133);">
+            <input type="button" id="id_btn6" class="cl_cmn" onclick="f_btn06()"
+                style="background-color: rgb(21, 69, 116);">
+            <input type="button" id="id_btn7" class="cl_cmn" onclick="f_btn07()"
+                style="background-color: rgb(23, 55, 87);">
+            <input type="button" id="id_btn8" class="cl_cmn" onclick="f_btn08()"
+                style="background-color: rgb(20, 38, 56);"> <br>
+            <input type="button" id="id_btn9" class="cl_cmn" onclick="f_btn09()"
+                style="background-color: rgb(17, 75, 133);">
+            <input type="button" id="id_btn10" class="cl_cmn" onclick="f_btn10()"
+                style="background-color: rgb(21, 69, 116);">
+            <input type="button" id="id_btn11" class="cl_cmn" onclick="f_btn11()"
+                style="background-color: rgb(23, 55, 87);">
+            <input type="button" id="id_btn12" class="cl_cmn" onclick="f_btn12()"
+                style="background-color: rgb(20, 38, 56);"> <br>
+            <audio src="sounds/808-Clap14.wav" id="id_snd01"></audio>
+            <audio src="sounds/808-Conga2.wav" id="id_snd02"></audio>
+            <audio src="sounds/808-HiHats04.wav" id="id_snd03_1"></audio>
+            <audio src="sounds/Victek_DK_2.wav" id="id_snd03_2"></audio>
+            <audio src="sounds/808-Kicks04.wav" id="id_snd04_1"></audio>
+            <audio src="sounds/808-Kicks07.wav" id="id_snd04_2"></audio>
+            <audio src="sounds/808-Maracas1.wav" id="id_snd05"></audio>
+            <audio src="sounds/808-OpenHiHats01.wav" id="id_snd06"></audio>
+            <audio src="sounds/808-Rim1.wav" id="id_snd07"></audio>
+            <audio src="sounds/808-Snare06.wav" id="id_snd08"></audio>
+            <audio src="sounds/808-Conga3.wav" id="id_snd09"></audio>
+            <audio src="sounds/808-Tom1.wav" id="id_snd10_1"></audio>
+            <audio src="sounds/808-Tom3.wav" id="id_snd10_2"></audio>
+            <audio src="sounds/bruh.mp3" id="id_snd11"></audio>
+            <audio src="sounds/bubutm.mp3" id="id_snd12"></audio>
+            <audio src="sounds/donno.mp3" id="id_snd13"></audio>
+        </div>
+    </div>
+    <script>
+        var v_snd01 = document.getElementById("id_snd01");
+        var v_snd02 = document.getElementById("id_snd02");
+        var v_snd03 = document.getElementById("id_snd03_1");
+        var v_snd04 = document.getElementById("id_snd04_1");
+        var v_snd05 = document.getElementById("id_snd05");
+        var v_snd06 = document.getElementById("id_snd06");
+        var v_snd07 = document.getElementById("id_snd07");
+        var v_snd08 = document.getElementById("id_snd08");
+        var v_snd09 = document.getElementById("id_snd09");
+        var v_snd10 = document.getElementById("id_snd10_1");
+        var v_snd11 = document.getElementById("id_snd11");
+        var v_snd12 = document.getElementById("id_snd12");
+        var v_snd13 = document.getElementById("id_snd13");
+        var v_btn1 = document.getElementById("id_btn1");
+        var v_btn2 = document.getElementById("id_btn2");
+        var v_btn3 = document.getElementById("id_btn3");
+        var v_btn4 = document.getElementById("id_btn4");
+        var v_btn5 = document.getElementById("id_btn5");
+        var v_btn6 = document.getElementById("id_btn6");
+        var v_btn7 = document.getElementById("id_btn7");
+        var v_btn8 = document.getElementById("id_btn8");
+        var v_btn9 = document.getElementById("id_btn9");
+        var v_btn10 = document.getElementById("id_btn10");
+        var v_btn11 = document.getElementById("id_btn11");
+        var v_btn12 = document.getElementById("id_btn12");
+
+        function f_prs1() {
+            v_btn1.style.backgroundColor = "rgb(17, 75, 133)";
+            v_btn1.style.borderRadius = "15%";
+        }
+        function f_prs2() {
+            v_btn2.style.backgroundColor = "rgb(21, 69, 116)";
+            v_btn2.style.borderRadius = "15%";
+        }
+        function f_prs3() {
+            v_btn3.style.backgroundColor = "rgb(23, 55, 87)";
+            v_btn3.style.borderRadius = "15%";
+        }
+        function f_prs4() {
+            v_btn4.style.backgroundColor = "rgb(20, 38, 56)";
+            v_btn4.style.borderRadius = "15%";
+        }
+        function f_prs5() {
+            v_btn5.style.backgroundColor = "rgb(17, 75, 133)";
+            v_btn5.style.borderRadius = "15%";
+        }
+        function f_prs6() {
+            v_btn6.style.backgroundColor = "rgb(21, 69, 116)";
+            v_btn6.style.borderRadius = "15%";
+        }
+        function f_prs7() {
+            v_btn7.style.backgroundColor = "rgb(23, 55, 87)";
+            v_btn7.style.borderRadius = "15%";
+        }
+        function f_prs8() {
+            v_btn8.style.backgroundColor = "rgb(20, 38, 56)";
+            v_btn8.style.borderRadius = "15%";
+        }
+        function f_prs9() {
+            v_btn9.style.backgroundColor = "rgb(17, 75, 133)";
+            v_btn9.style.borderRadius = "15%";
+        }
+        function f_prs10() {
+            v_btn10.style.backgroundColor = "rgb(21, 69, 116)";
+            v_btn10.style.borderRadius = "15%";
+        }
+        function f_prs11() {
+            v_btn11.style.backgroundColor = "rgb(23, 55, 87)";
+            v_btn11.style.borderRadius = "15%";
+        }
+        function f_prs12() {
+            v_btn12.style.backgroundColor = "rgb(20, 38, 56)";
+            v_btn12.style.borderRadius = "15%";
+        }
+
+        /* ------------------------------------------------- */
+
+        function f_btn01() {
+            v_snd01.currentTime = 0;
+            v_snd01.play();
+            v_btn1.style.backgroundColor = "cyan";
+            v_btn1.style.borderRadius = "30%";
+            setTimeout(f_prs1, 160);
+        }
+        function f_btn02() {
+            v_snd02.currentTime = 0;
+            v_snd02.play();
+            v_btn2.style.backgroundColor = "cyan";
+            v_btn2.style.borderRadius = "30%";
+            setTimeout(f_prs2, 160);
+        }
+        function f_btn03() {
+            v_snd03.currentTime = 0;
+            v_snd03.play();
+            v_btn3.style.backgroundColor = "cyan";
+            v_btn3.style.borderRadius = "30%";
+            setTimeout(f_prs3, 160);
+        }
+        function f_btn04() {
+            v_snd04.currentTime = 0;
+            v_snd04.play();
+            v_btn4.style.backgroundColor = "cyan";
+            v_btn4.style.borderRadius = "30%";
+            setTimeout(f_prs4, 160);
+        }
+        function f_btn05() {
+            v_snd05.currentTime = 0;
+            v_snd05.play();
+            v_btn5.style.backgroundColor = "cyan";
+            v_btn5.style.borderRadius = "30%";
+            setTimeout(f_prs5, 160);
+        }
+        function f_btn06() {
+            v_snd06.currentTime = 0;
+            v_snd06.play();
+            v_btn6.style.backgroundColor = "cyan";
+            v_btn6.style.borderRadius = "30%";
+            setTimeout(f_prs6, 160);
+        }
+        function f_btn07() {
+            v_snd07.currentTime = 0;
+            v_snd07.play();
+            v_btn7.style.backgroundColor = "cyan";
+            v_btn7.style.borderRadius = "30%";
+            setTimeout(f_prs7, 160);
+        }
+        function f_btn08() {
+            v_snd08.currentTime = 0;
+            v_snd08.play();
+            v_btn8.style.backgroundColor = "cyan";
+            v_btn8.style.borderRadius = "30%";
+            setTimeout(f_prs8, 160);
+        }
+        function f_btn09() {
+            v_snd09.currentTime = 0;
+            v_snd09.play();
+            v_btn9.style.backgroundColor = "cyan";
+            v_btn9.style.borderRadius = "30%";
+            setTimeout(f_prs9, 160);
+        }
+        function f_btn10() {
+            v_snd10.currentTime = 0;
+            v_snd10.play();
+            v_btn10.style.backgroundColor = "cyan";
+            v_btn10.style.borderRadius = "30%";
+            setTimeout(f_prs10, 160);
+        }
+        function f_btn11() {
+            v_snd11.currentTime = 0;
+            v_snd11.play();
+            v_btn11.style.backgroundColor = "cyan";
+            v_btn11.style.borderRadius = "30%";
+            setTimeout(f_prs11, 160);
+        }
+        function f_btn12() {
+            v_snd12.currentTime = 0;
+            v_snd12.play();
+            v_btn12.style.backgroundColor = "cyan";
+            v_btn12.style.borderRadius = "30%";
+            setTimeout(f_prs12, 160);
+        }
+        function f_btn13() {
+            v_snd13.currentTime = 0;
+            v_snd13.play();
+        }
+        function f_btnBk() {
+            v_snd01.pause();
+            v_snd02.pause();
+            v_snd03.pause();
+            v_snd04.pause();
+            v_snd05.pause();
+            v_snd06.pause();
+            v_snd07.pause();
+            v_snd08.pause();
+            v_snd09.pause();
+            v_snd10.pause();
+            v_snd11.pause();
+            v_snd12.pause();
+            v_snd13.pause();
+        }
+        function f_cng1() {
+            if (v_snd04.id == "id_snd04_1") {
+                v_snd04 = document.getElementById("id_snd04_2");
+                alert("Stronger")
+            } else if (v_snd04.id == "id_snd04_2") {
+                v_snd04 = document.getElementById("id_snd04_1");
+                alert("Lesser")
+            }
+        }
+        function f_cng2() {
+            if (v_snd10.id == "id_snd10_1") {
+                v_snd10 = document.getElementById("id_snd10_2");
+                alert("Stronger")
+            } else if (v_snd10.id == "id_snd10_2") {
+                v_snd10 = document.getElementById("id_snd10_1");
+                alert("Lesser")
+            }
+        }
+        function f_cng3() {
+            if (v_snd03.id == "id_snd03_1") {
+                v_snd03 = document.getElementById("id_snd03_2");
+                alert("Kick")
+            } else if (v_snd03.id == "id_snd03_2") {
+                v_snd03 = document.getElementById("id_snd03_1");
+                alert("HiHat")
+            }
+        }
+
+
+        window.addEventListener("keydown", f_bbb, false);
+        function f_bbb(key) {
+            if (key.keyCode == 81) {
+                f_btn01();
+            }
+            if (key.keyCode == 87) {
+                f_btn02();
+            }
+            if (key.keyCode == 69) {
+                f_btn03();
+            }
+            if (key.keyCode == 82) {
+                f_btn04();
+            }
+            if (key.keyCode == 65) {
+                f_btn05();
+            }
+            if (key.keyCode == 83) {
+                f_btn06();
+            }
+            if (key.keyCode == 68) {
+                f_btn07();
+            }
+            if (key.keyCode == 70) {
+                f_btn08();
+            }
+            if (key.keyCode == 90) {
+                f_btn09();
+            }
+            if (key.keyCode == 88) {
+                f_btn10();
+            }
+            if (key.keyCode == 67) {
+                f_btn11();
+            }
+            if (key.keyCode == 86) {
+                f_btn12();
+            }
+            if (key.keyCode == 71) {
+                f_btn13();
+            }
+            if (key.keyCode == 66) {
+                f_btnBk();
+            }
+            if (key.keyCode == 84) {
+                f_cng1();
+            }
+            if (key.keyCode == 89) {
+                f_cng2();
+            }
+            if (key.keyCode == 85) {
+                f_cng3();
+            }
+        }
+
+    </script>
+    <script>
+        const v_rec = document.getElementById("id_rec");
+        const v_stop = document.getElementById("id_stop");
+        const v_play = document.getElementById("id_play");
+        let audioUrl = " ";
+        let audio;
+
+        function f_rec() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    const mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    const audioChunks = [];
+
+                    mediaRecorder.addEventListener("dataavailable", event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener("stop", () => {
+                        let audioBlob = new Blob(audioChunks);
+                        audioUrl = URL.createObjectURL(audioBlob);
+                        v_play.onclick = () => {
+                            audio = new Audio(audioUrl);
+                            audio.play();
+                        };
+                    });
+
+                    v_stop.onclick = () => {
+                        mediaRecorder.stop();
+                    };
+                    // function f_stRec(){
+                    //     alert("onkeydown");
+                    //     mediaRecorder.stop();
+                    // }
+                });
+        };
+
+        function f_play() {
+            audio = new Audio(audioUrl);
+            audio.loop = true;
+            audio.play();
+        }
+        function f_stop() {
+            audio.pause();
+        }
+
+        window.addEventListener("keydown", f_rrr, false);
+
+        function f_rrr(key) {
+            if (key.keyCode == 74) {
+                f_rec();
+            }
+            if (key.keyCode == 78) {
+                f_stop();
+            }
+            if (key.keyCode == 76) {
+                f_play();
+            }
+            // if (key.keyCode == 75) {
+            //     f_stRec();
+            // }
+        }
+
+    </script>
+</body>
+
+</html>
